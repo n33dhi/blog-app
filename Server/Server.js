@@ -8,11 +8,8 @@ const BlogRoute = require('../Server/routes/blogRoute');
 
 const app = express();
 app.use(express.json());
-const allowedOrigins = ['http://localhost:3000',];
-app.use(cors({
-  credentials: true,
-  origin: allowedOrigins
-}));
+
+app.use(cors());
 
 //ROUTES
 app.use('/', UserRoute);
