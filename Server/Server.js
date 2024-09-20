@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 const UserRoute = require('../Server/routes/userRoute');
@@ -7,6 +8,11 @@ const BlogRoute = require('../Server/routes/blogRoute');
 
 const app = express();
 app.use(express.json());
+const allowedOrigins = ['http://localhost:3000',];
+app.use(cors({
+  credentials: true,
+  origin: allowedOrigins
+}));
 
 //ROUTES
 app.use('/', UserRoute);
